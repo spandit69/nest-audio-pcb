@@ -1,0 +1,95 @@
+(kicad_sch
+  (version 20240108)
+  (generator "eeschema")
+  (uuid "00000000-0000-0000-0000-000000000001")
+  (paper "A4")
+  
+  (title_block
+    (title "Nest Audio PCB - Root Sheet")
+    (date "2025-02-07")
+    (rev "0.1")
+    (company "[Your Name]")
+    (comment 1 "Work in Progress - Measurements TBD")
+    (comment 2 "Based on Home Assistant Voice PE")
+  )
+
+  (lib_symbols
+    (symbol "Project:Sheet_Audio" 
+      (pin_names (offset 1.016))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "A" (id 0) (at 0 2.54 0))
+      (property "Value" "Audio" (id 1) (at 0 0 0))
+      (property "Footprint" "" (id 2) (at 0 0 0))
+      (property "Datasheet" "" (id 3) (at 0 0 0))
+      (symbol "Sheet_Audio_0_1"
+        (rectangle (start -7.62 5.08) (end 7.62 -5.08)
+          (stroke (width 0.254) (type default) (color 0 0 0 1))
+          (fill (type background))
+        )
+      )
+    )
+    (symbol "Project:Sheet_Power" 
+      (pin_names (offset 1.016))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "P" (id 0) (at 0 2.54 0))
+      (property "Value" "Power" (id 1) (at 0 0 0))
+      (symbol "Sheet_Power_0_1"
+        (rectangle (start -7.62 5.08) (end 7.62 -5.08)
+          (stroke (width 0.254) (type default) (color 0 0 0 1))
+          (fill (type background))
+        )
+      )
+    )
+    (symbol "Project:Sheet_MCU" 
+      (pin_names (offset 1.016))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U" (id 0) (at 0 2.54 0))
+      (property "Value" "MCU" (id 1) (at 0 0 0))
+      (symbol "Sheet_MCU_0_1"
+        (rectangle (start -7.62 5.08) (end 7.62 -5.08)
+          (stroke (width 0.254) (type default) (color 0 0 0 1))
+          (fill (type background))
+        )
+      )
+    )
+    (symbol "Project:Sheet_IO" 
+      (pin_names (offset 1.016))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J" (id 0) (at 0 2.54 0))
+      (property "Value" "IO" (id 1) (at 0 0 0))
+      (symbol "Sheet_IO_0_1"
+        (rectangle (start -7.62 5.08) (end 7.62 -5.08)
+          (stroke (width 0.254) (type default) (color 0 0 0 1))
+          (fill (type background))
+        )
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+    (path "/00000000-0000-0000-0000-000000000001" (page "2"))
+    (path "/00000000-0000-0000-0000-000000000002" (page "3"))
+    (path "/00000000-0000-0000-0000-000000000003" (page "4"))
+    (path "/00000000-0000-0000-0000-000000000004" (page "5"))
+  )
+
+  (symbol_instances
+    (path "/00000000-0000-0000-0000-000000000001"
+      (reference "A1") (unit 1) (value "Audio") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000000000002"
+      (reference "P1") (unit 1) (value "Power") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000000000003"
+      (reference "U1") (unit 1) (value "MCU") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-000000000004"
+      (reference "J1") (unit 1) (value "IO") (footprint "")
+    )
+  )
+)

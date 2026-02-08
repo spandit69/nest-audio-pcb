@@ -1,0 +1,67 @@
+(kicad_project
+  (version 20240108)
+  (generator "pl_editor")
+  (generator_version "8.0")
+  (paper "A4")
+  (title_block
+    (title "Nest Audio Drop-In PCB")
+    (date "2025-02-07")
+    (rev "0.1")
+    (company "[Your Name/Org]")
+    (comment 1 "Open Source - CERN-OHL-S v2")
+    (comment 2 "Home Assistant Voice Assistant Compatible")
+    (comment 3 "Based on Home Assistant Voice PE reference design")
+  )
+  (libraries
+    (library "audio"
+      (uri "audio.kicad_sch")
+      (options "")
+      (descr "Audio processing and amplification")
+    )
+    (library "power"
+      (uri "power.kicad_sch")
+      (options "")
+      (descr "Power management and regulation")
+    )
+    (library "mcu"
+      (uri "mcu.kicad_sch")
+      (options "")
+      (descr "ESP32-S3 and XMOS microcontroller")
+    )
+    (library "io"
+      (uri "io.kicad_sch")
+      (options "")
+      (descr "Connectors and interfaces")
+    )
+  )
+  (schematics
+    (page "1" "nest-audio-pcb" "nest-audio-pcb.kicad_sch" "Root")
+    (page "2" "audio" "audio.kicad_sch" "Audio Subsystem")
+    (page "3" "power" "power.kicad_sch" "Power Management")
+    (page "4" "mcu" "mcu.kicad_sch" "Microcontrollers")
+    (page "5" "io" "io.kicad_sch" "Connectors")
+  )
+  (pcb
+    (stackup
+      (layer "F.SilkS" "Top Silk Screen")
+      (layer "F.Paste" "Top Paste")
+      (layer "F.Mask" "Top Mask")
+      (layer "F.Cu" "Top Copper")
+      (layer "dielectric 1" "FR4" 1.6)
+      (layer "B.Cu" "Bottom Copper")
+      (layer "B.Mask" "Bottom Mask")
+      (layer "B.Paste" "Bottom Paste")
+      (layer "B.SilkS" "Bottom Silk Screen")
+    )
+  )
+  (text_variables
+    (project_author "[Your Name]")
+    (project_license "CERN-OHL-S-2.0")
+    (project_version "0.1.0")
+  )
+  (export
+    (svg
+      (output "images/pcb-render.svg")
+    )
+  )
+)

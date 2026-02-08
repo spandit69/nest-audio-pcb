@@ -1,0 +1,33 @@
+Reference,Value,Datasheet,Footprint,Qty,Manufacturer,MPN,Description,Notes
+"U1","ESP32-S3R8","https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf","QFN-56",1,"Espressif","ESP32-S3R8","WiFi/BLE MCU with 8MB PSRAM","Main controller"
+"U2","XU316-1024-QF60B","https://www.xmos.com/download/XU316-Datasheet(3.0).pdf","QFN-60",1,"XMOS","XU316-1024-QF60B","DSP Audio Processor","From nest-mini project"
+"U3","MAX98357A","https://www.analog.com/media/en/technical-documentation/data-sheets/MAX98357A-MAX98357B.pdf","TQFN-16",1,"Analog Devices","MAX98357A","3W I2S Class-D Amp","May need upgrade for larger speaker"
+"U4","TPS54202","https://www.ti.com/lit/ds/symlink/tps54202.pdf","SOT-23-6",1,"Texas Instruments","TPS54202","28V 2A Buck Converter","14V to 3.3V/5V"
+"U5","XC6206P332MR","https://www.torexsemi.com/file/xc6206/XC6206.pdf","SOT-23-3",1,"Torex","XC6206P332MR","3.3V LDO","Low noise for audio"
+"U6","XC6206P502MR","https://www.torexsemi.com/file/xc6206/XC6206.pdf","SOT-23-3",1,"Torex","XC6206P502MR","5.0V LDO","For speaker amp"
+"J1","USB-C-16P","https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf","USB-C-16P",1,"","","USB Type C Connector","Power and data"
+"J2","Barrel_Jack","","BarrelJack_Horizontal",1,"","","14V Power Input","From original power supply"
+"J3","Conn_01x04","","PinHeader_1x04_P2.54mm",1,"","","Speaker Output","Spade connectors"
+"J4","Conn_01x06","","PinHeader_1x06_P2.54mm",1,"","","LED Board","Status LEDs"
+"J5","Conn_01x04","","PinHeader_1x04_P2.54mm",1,"","","Touch Sensors","Top touch controls"
+"MK1","MMICT390200012","https://www.mouser.com/datasheet/2/511/mic_board_mount_smd-1525204.pdf","MEMS_SMD",1,"Knowles","MMICT390200012","MEMS Microphone","From nest-mini project"
+"MK2","MMICT390200012","https://www.mouser.com/datasheet/2/511/mic_board_mount_smd-1525204.pdf","MEMS_SMD",1,"Knowles","MMICT390200012","MEMS Microphone","Dual mic array"
+"L1","4.7uH","","L_0805_2012Metric",1,"","","Inductor","Buck converter"
+"C1-C10","10uF","","C_0805_2012Metric",10,"","","Ceramic Capacitor","Decoupling"
+"C11-C20","100nF","","C_0603_1608Metric",10,"","","Ceramic Capacitor","Decoupling"
+"C21-C25","22uF","","C_0805_2012Metric",5,"","","Ceramic Capacitor","Bulk capacitance"
+"R1-R10","10k","","R_0603_1608Metric",10,"","","Resistor","Pull-ups/dividers"
+"D1","LED_RGB","","LED_SK6812MINI",6,"","","SK6812 RGB LED","Status indication"
+"Y1","32.768kHz","","Crystal_SMD_3215-2Pin_3.2x1.5mm",1,"","","32.768kHz Crystal","RTC"
+"SW1","SW_Push","","SW_SPST_TACTILE",1,"","","Reset Button","Tactile switch"
+"SW2","SW_Push","","SW_SPST_TACTILE",1,"","","Boot Button","For programming"
+"Q1","AO3400A","https://datasheet.lcsc.com/szlcsc/AO3400A_C20917.pdf","SOT-23",2,"","","N-Channel MOSFET","Power switching"
+"FB1","MMZ1608R301A","","Ferrite_Bead_0603",3,"TDK","MMZ1608R301A","Ferrite Bead","EMI filtering"
+"RN1","10k","","R_Array_Convex_4x0603",1,"","","Resistor Network","Pull-ups"
+"ICSP1","Conn_01x06","","PinHeader_1x06_P2.54mm",1,"","","Programming Header","ESP32 debug"
+
+"NOTES:",
+"1. All component values subject to change based on measurements and testing",
+"2. Amplifier may need upgrade from MAX98357 for Nest Audio's larger speaker",
+"3. Verify all footprints against actual components before ordering",
+"4. Some components from nest-mini project may need different values for Nest Audio",

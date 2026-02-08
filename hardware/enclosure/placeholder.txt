@@ -1,0 +1,18 @@
+# Placeholder for 3D scan files
+
+This directory will contain 3D scan files after scanning at the library.
+
+## Expected Files
+- mlb-top.stl - Main logic board top
+- mlb-bottom.stl - Main logic board bottom
+- daughterboard.stl - Power/audio board
+- speaker-left.stl - Left speaker
+- speaker-right.stl - Right speaker
+- led-board.stl - LED light board
+- enclosure-cavity.stl - Internal enclosure space
+
+## Notes
+- Large scan files are excluded from git (see .gitignore)
+- Keep processed measurement data in docs/measurements.md
+- Upload summary images to images/ directory
+- Link to cloud storage for full scan files if needed
